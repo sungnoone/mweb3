@@ -15,27 +15,34 @@
     <!-- self custom -->
     <link rel="stylesheet" type="text/css" href="css/index.css"/>
     <script src="js/index.js"></script>
+    <script>
+        $(function(){
+            $("input[type=submit],a,button").button().click(function(event){
+                event.preventDefault();
+            });
+        });
+    </script>
+    <style type="text/css">
+        /* set the size of the datepicker search control for Order Date*/
+        #ui-datepicker-div { font-size:12px; }
 
+        /* set the size of the autocomplete search control*/
+        .ui-menu-item {
+            font-size: 12px;
+        }
+        .ui-autocomplete { font-size: 11px; position: absolute; cursor: default;z-index:5000 !important;}
+    </style>
     <meta charset="UTF-8">
     <title>mweb3</title>
 </head>
+
 <body>
 
-<style type="text/css">
-    /* set the size of the datepicker search control for Order Date*/
-    #ui-datepicker-div { font-size:11px; }
-
-    /* set the size of the autocomplete search control*/
-    .ui-menu-item {
-        font-size: 11px;
-    }
-    .ui-autocomplete { font-size: 11px; position: absolute; cursor: default;z-index:5000 !important;}
-</style>
-
+<a href="#" onclick="uploadFile();">file input</a>
+<br />
 <table id="jqGrid"></table>
 <div id="jqGridPager"></div>
 <br />
-
 
 </body>
 </html>
