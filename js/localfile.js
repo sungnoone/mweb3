@@ -1,22 +1,17 @@
 /**
- * Created by hl on 2014/12/11.
+ * Created by hl on 2015/1/27.
  */
-
-
-var RESTFUL_HOST = "http://192.168.1.229:8088"; //服務主機
-var RESTFUL_URL_TEST = "/msrv3/"; //測試用
-var ROW_ID = "";//記錄 row id
-
 
 $(document).ready(function () {
     var lastsel;
     $("#jqGrid").jqGrid({
-        url: 'csvtojson.json',
+        //url: 'csvtojson.json',
+        url: RESTFUL_HOST+RESTFUL_SRV_QUERY_CN_WORDS_TYPE1,
         editurl: 'clientArray',
-        //mtype: "GET",
+        mtype: "GET",
         datatype: "json",
         //page: 1,
-        colNames:['ID','年度', '年級', '課次','生字','生字注音','部首','部首注音','總筆畫','部首外筆畫','字義教學','造詞','例句','延伸詞語解釋','成語教學','字形辨別','字音辨別','教學圖卡'],
+        colNames:['編號','年度', '年級', '課次','生字','生字注音','部首','部首注音','總筆畫','部首外筆畫','字義教學','造詞','例句','延伸詞語解釋','成語教學','字形辨別','字音辨別','教學圖卡'],
         colModel: [
             { name:"id", index:'id', sorttype:"int", width: 55},
             { name: '年度',index:'年度', width: 75 ,editable:true, edittype:"select", editoptions:{value:"99:99;100:100;101:101;102:102"}},
@@ -51,61 +46,41 @@ $(document).ready(function () {
             if(id && id!==lastsel){
                 $("#jqGrid").jqGrid("restoreRow", lastsel);
                 var editparameters = {
-                        "keys" : true,
-                        "oneditfunc" : null,
-                        "successfunc" : null,
-                        "url" : null,
-                        "extraparam" : {},
-                        "aftersavefunc" : null,
-                        "errorfunc": null,
-                        "afterrestorefunc" : null,
-                        "restoreAfterError" : true,
-                        "mtype" : "POST"
-                    }
+                    "keys" : true,
+                    "oneditfunc" : null,
+                    "successfunc" : null,
+                    "url" : null,
+                    "extraparam" : {},
+                    "aftersavefunc" : null,
+                    "errorfunc": null,
+                    "afterrestorefunc" : null,
+                    "restoreAfterError" : true,
+                    "mtype" : "POST"
+                }
                 $("#jqGrid").jqGrid("editRow", id, editparameters);
                 lastsel=id;
             }
+        },
+        loadError:function(xhr, status, error){
+            alert("load data error: "+status);
+        },
+        beforeRequest:function(){
+            $("#log_area").append(" beforeRequest:"+new Date($.now())+"</br>");
+        },
+        gridComplete:function(){
+            $("#log_area").append(" gridComplete:"+new Date($.now())+"</br>");
+        },
+        loadComplete:function(data){
+            $("#log_area").append(" loadComplete:"+new Date($.now())+"</br>");
+        },
+        serializeGridData:function(postData){
+            $("#log_area").append(" serializeGridData:"+new Date($.now())+"</br>");
+        },
+        beforeProcessing:function(data, status, xhr){
+            $("#log_area").append(" beforeProcessing:"+new Date($.now())+"</br>");
         }
     });
 
     $("#jqGrid").jqGrid("navGrid", "#jqGridPager", {edit:false, add:false, del:false});
 
 });
-
-//
-function btn_test(){
-    var url = RESTFUL_HOST;
-    var data = "Sending data";
-    $.ajax({
-        type: "GET",
-        url:url,
-        contentType: "text/plain; charset=utf-8",
-        dataType: "text",
-        success: function(data, status, jqXHR){
-            alert(data);
-        },
-        error: function(jqXHR, status){
-            alert("FAIL!");
-        }
-    });
-}
-
-//
-function uploadFile(){
-    var url = RESTFUL_HOST;
-    var data = "Sending data";
-    $.ajax({
-        type: "POST",
-        url:url,
-        contentType: "text/plain; charset=utf-8",
-        dataType: "text",
-        success: function(data, status, jqXHR){
-            alert(data);
-        },
-        error: function(jqXHR, status){
-            alert("FAIL!");
-        }
-    });
-}
-
-
