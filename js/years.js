@@ -26,8 +26,6 @@ $(document).ready(function () {
                     key:true,
                     editformbutton:true,
                     editOptions:{
-                        top:100,
-                        left:100,
                         closeAfterEdit:true
                     },
                     addOptions:{},
@@ -109,6 +107,15 @@ $(document).ready(function () {
                     //$("#jqGrid").jqGrid("editGridRow", id, {top:10,left:10});
                     lastsel=id;
                 }
+            },
+            beforeShowForm: function(form){
+                var dlgDiv = $("#jqGrid");
+                windowVertSize = f_clientHeight()
+                windowVertScroll = f_scrollTop()
+                topSpacing = windowVertScroll + 20
+                dlgDiv[0].style.left = "25%";
+                dlgDiv[0].style.top = topSpacing + "px";
+                dlgDiv[0].style.left = "25%";
             }
         });
     $("#jqGrid").jqGrid("editGridRow", lastsel, {top:10,left:10});
