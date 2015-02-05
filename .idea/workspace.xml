@@ -57,8 +57,8 @@
       <file leaf-file-name="years.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/years.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8604651" vertical-offset="1275" max-vertical-offset="1920">
-              <caret line="122" column="3" selection-start-line="122" selection-start-column="3" selection-end-line="122" selection-end-column="3" />
+            <state vertical-scroll-proportion="0.20930232" vertical-offset="450" max-vertical-offset="1905">
+              <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -701,8 +701,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/years.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8604651" vertical-offset="1275" max-vertical-offset="1920">
-          <caret line="122" column="3" selection-start-line="122" selection-start-column="3" selection-end-line="122" selection-end-column="3" />
+        <state vertical-scroll-proportion="0.20930232" vertical-offset="450" max-vertical-offset="1905">
+          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
           <folding />
         </state>
       </provider>

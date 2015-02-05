@@ -37,7 +37,6 @@ $(document).ready(function () {
                         //value:"99:99;100:100;101:101;102:102",
                         readonly:true,
                         dataUrl:RESTFUL_HOST+RESTFUL_SRV_QUERY_CN_OPTIONS_YEAR,
-                        defaultValue:"105",
                         buildSelect:function(jsonArray){
                             //alert(jsonArray.length);
                             //var response = $.parseJSON(jsonArray);
