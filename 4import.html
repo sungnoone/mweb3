@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-TW">
+    <meta charset="UTF-8">
+    <title>上傳檔案</title>
+    <link rel="stylesheet" href="css/1import.css">
+</head>
+<body>
+<div>
+    <h3>測試用途</h3>
+    <input id="fileupload" type="file" name="files[]" multiple>
+    <p />
+    <div id="progress">
+        <div class="bar" style="width: 0%;"></div>
+    </div>
+</div>
+
+
+<script src="js/jq/jquery-2.1.3.js"></script>
+<script src="js/jq/jquery-ui.js"></script>
+<script src="js/jq/vendor/jquery.ui.widget.js"></script>
+<script src="js/jq/jquery.iframe-transport.js"></script>
+<script src="js/jq/jquery.fileupload.js"></script>
+<script src="js/jq/jquery.fileupload-jquery-ui.js"></script>
+<script src="js/index.js"></script>
+<script>
+    $(function(){
+        $("#fileupload").fileupload({
+            url:RESTFUL_HOST+RESTFUL_UPLOAD_CSV,
+            type:"POST",
+            dataType:"json",
+            done:function(e,data){
+                try{
+                    $.each(data.result.files, function (index,file) {
+                        $("<p/>").text(file.name+" => "+file.error).appendTo(document.body);
+                    });
+                }catch (e){
+                    $("<p/>").text(e.toString()).appendTo(document.body);
+                }
+            },
+            add: function(e,data){
+                data.context = $("<p/>").text("Uploading...").appendTo(document.body);
+                data.submit();
+            },
+            progressall:function(e,data){
+                var progress = parseInt(data.loaded/data.total*100,10);
+                $("#progress .bar").css("width",progress+"%");
+                //data.submit();
+            }
+        });
+    });
+</script>
+</body>
+</html>
