@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>mweb3</title>
+</head>
+
+<body>
+<div id="log_area"></div>
+<div id="grid_area">
+    <br />
+    <table id="jqGrid"></table>
+    <div id="jqGridPager"></div>
+    <br />
+</div>
+<!--<a href="#" onclick="uploadFile();">file input</a>-->
+
+
+<link rel="stylesheet" type="text/css" media="screen" href="css/jqui/jquery-ui.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="css/jqui/theme.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="css/jqui/jquery-ui.structure.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="css/jqui/ui.jqgrid.css" />
+<link rel="stylesheet" type="text/css" href="css/index.css"/>
+<script type="text/javascript" src="js/jq/jquery-2.1.3.js"></script>
+<script type="text/javascript" src="js/jq/jquery-ui.js"></script>
+<script type="text/javascript" src="js/jq/jquery.jqGrid.min.js"></script>
+<script type="text/javascript" src="js/jq/jquery.jqGrid.src.js"></script>
+<script type="text/javascript" src="js/jq/grid.common.js"></script>
+<script type="text/javascript" src="js/jq/grid.formedit.js"></script>
+<script type="text/javascript" src="js/jq/jqDnR.js"></script>
+<script type="text/javascript" src="js/jq/jqModal.js"></script>
+<script type="text/javascript" src="js/i18n/grid.locale-tw.js"></script>
+<script src="js/ref.js"></script>
+<script src="js/1broken_view.js"></script>
+<script src="js/4years.js"></script>
+<script>
+    $(function(){
+        $("input[type=submit],a,button").button().click(function(event){
+            event.preventDefault();
+        });
+    });
+</script>
+<style type="text/css">
+    /* set the size of the datepicker search control for Order Date*/
+    #ui-datepicker-div { font-size:12px; }
+    /* set the size of the autocomplete search control*/
+    .ui-menu-item {
+        font-size: 12px;
+    }
+    .ui-autocomplete { font-size: 11px; position: absolute; cursor: default;z-index:5000 !important;}
+</style>
+</body>
+</html>
